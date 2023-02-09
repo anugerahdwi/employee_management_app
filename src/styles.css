@@ -1,0 +1,38 @@
+/* Website Font start */
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+/* Website Font end */
+
+/* Bootstrap Icons start */
+@import '~bootstrap-icons/font/bootstrap-icons.css';
+/* Bootstrap Icons end */
+
+/* Toastr start */
+@import '~ngx-toastr/toastr.css';
+/* Toastr end */
+
+/* Input Placeholder Attribute Custom start */
+::-webkit-input-placeholder {
+    font-size: 1.5rem;
+}
+
+:-moz-placeholder { /* firefox 18- */
+    font-size: 1.5rem;
+}
+
+::-moz-placeholder { /* firefox 19+ */
+    font-size: 1.5rem;
+}
+
+/* overriding styles */
+::-webkit-input-placeholder {
+    font-size: 0.8rem !important;
+}
+
+:-moz-placeholder { /* firefox 18- */
+    font-size: 0.8rem !important;
+}
+
+::-moz-placeholder { /* firefox 19+ */
+    font-size: 0.8rem !important;
+}
+/* Input Placeholder Attribute Custom end */

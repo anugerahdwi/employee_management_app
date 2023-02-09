@@ -1,0 +1,21 @@
+<div class="min-vh-100 bg-color pb-4">
+    <app-header-main></app-header-main>
+    <div class="container">
+        <app-header-child></app-header-child>
+        <div class="card border-0 shadow-sm">
+            <div class="car-body py-4 px-3">
+                <div class="row">
+                    <h5 class="fw-bold mb-4">Delete Employee</h5>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <p>Are you sure to delete employee <b>( {{ employeeName }} )</b>?</p>
+                        <button type="button" class="btn btn-sm btn-danger shadow-none me-1" (click)="deleteEmployee()">Delete Employee</button>
+                        <button type="button" class="btn btn-sm btn-light shadow-none" (click)="routerNavigateBack()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border-0 text-center text-muted fw-lighter">
+                <small>Employee Management</small>
+            </div>
+        </div>
+    </div>
+</div>

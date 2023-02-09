@@ -1,0 +1,32 @@
+<div class="min-vh-100 bg-color pb-4">
+    <app-header-main></app-header-main>
+    <div class="container">
+        <app-header-child></app-header-child>
+        <div class="card border-0 shadow-sm">
+            <div class="car-body py-4 px-3">
+                <div class="row">
+                    <h5 class="fw-bold mb-4">Edit Group</h5>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <form [formGroup]="editGroupForm" (ngSubmit)="editGroup()">
+                            <div class="mb-3">
+                                <label for="group_name" class="form-label"><small>Group Name</small></label>
+                                <input type="text" id="group_name" class="form-control form-control-sm shadow-none" formControlName="group_name" [(ngModel)]="editGroupFormData.group_name" placeholder="Group name"
+                                        [ngClass]="{ 'is-invalid': submitted && f['group_name'].errors }" />
+                                <div *ngIf="submitted && f['group_name'].errors" class="invalid-feedback">
+                                    <div *ngIf="f['group_name'].errors['required']"><small>Group name is required.</small></div>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-sm btn-warning shadow-none me-1">Edit Group</button>
+                            <a [routerLink]="'/group-list'">
+                                <button type="button" class="btn btn-sm btn-light shadow-none">Cancel</button>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border-0 text-center text-muted fw-lighter">
+                <small>Employee Management</small>
+            </div>
+        </div>
+    </div>
+</div>

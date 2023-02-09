@@ -1,0 +1,66 @@
+<div class="min-vh-100 bg-color pb-4">
+    <app-header-main></app-header-main>
+    <div class="container">
+        <app-header-child></app-header-child>
+        <div class="card border-0 shadow-sm">
+            <div class="car-body py-4 px-3">
+                <div class="row">
+                    <h5 class="fw-bold mb-4">Group List</h5>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-6 d-flex flex-column justify-content-center align-items-start">
+                                <div class="w-auto">
+                                    <input type="text" class="form-control form-control-sm shadow-none" [(ngModel)]="searchGroup" (input)="searchDataGroup()" placeholder="Search group ...">
+                                </div>
+                            </div>
+                            <div class="col-6 d-flex flex-column justify-content-center align-items-end">
+                                <a [routerLink]="'/group-add'">
+                                    <button type="button" class="btn btn-sm btn btn-outline-success shadow-none"><i class="bi bi-plus-circle"></i> Add Group</button>
+                                </a>
+                            </div>
+                            <div class="col-12 d-flex flex-column justify-content-center align-items-start">
+                                <div class="text-danger mt-3" style="font-size: 0.7rem;">* Search by group name.</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="w-100 table table-hover bg-white align-middle">
+                            <thead class="bg-light">
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col" style="word-wrap: break-word; min-width: 300px; max-width: 300px;">Group Name</th>
+                                    <th scope="col" style="word-wrap: break-word; min-width: 100px; max-width: 100px;">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let data of allGroup | paginate: { itemsPerPage: itemsPerPage, currentPage: currentPage, totalItems: totalItems }; index as i">
+                                    <th scope="row">{{ i + 1 }}</th>
+                                    <td>
+                                        {{ data.group_name }}
+                                    </td>
+                                    <td>
+                                        <button type="button" class="btn btn-sm btn-outline-warning shadow-none mb-1 mb-sm-1 mb-md-0 mb-lg-0 mb-xl-0 me-1" [routerLink]="['/group-edit', data.id]"><i class="bi bi-pencil-square"></i> Edit</button>
+                                        <button type="button" class="btn btn-sm btn-outline-danger shadow-none" [routerLink]="['/group-delete', data.id]"><i class="bi bi-trash"></i> Delete</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row mt-2 mb-0">
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex flex-column justify-content-center align-items-center align-items-sm-center align-items-md-center align-items-lg-start align-items-xl-start mb-3">
+                            <select (change)="setDataTableSize($event)" class="w-auto form-select form-select-sm shadow-none">
+                                <option *ngFor="let size of tableSize" [ngValue]="size">{{ size }}</option>
+                            </select>
+                        </div>
+                        <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6 d-flex flex-column justify-content-center align-items-center align-items-sm-center align-items-md-center align-items-lg-end align-items-xl-end mb-3">
+                            <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="setDataTablePagination($event)" style="font-size: 13px;"></pagination-controls>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border-0 text-center text-muted fw-lighter">
+                <small>Employee Management</small>
+            </div>
+        </div>
+    </div>
+</div>

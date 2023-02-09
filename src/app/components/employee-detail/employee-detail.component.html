@@ -1,0 +1,72 @@
+<div class="min-vh-100 bg-color pb-4">
+    <app-header-main></app-header-main>
+    <div class="container">
+        <app-header-child></app-header-child>
+        <div class="card border-0 shadow-sm">
+            <div class="car-body py-4 px-3">
+                <div class="row">
+                    <h5 class="fw-bold mb-4">Detail Employee</h5>
+                    <div class="col-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                        <form [formGroup]="detailEmployeeForm">
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="mb-3">
+                                        <label for="first_name" class="form-label"><small>First Name</small></label>
+                                        <input type="text" id="first_name" class="form-control form-control-sm shadow-none" formControlName="first_name" [value]="detailEmployeeFormData.first_name" placeholder="First name" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="mb-3">
+                                        <label for="last_name" class="form-label"><small>Last Name</small></label>
+                                        <input type="text" id="last_name" class="form-control form-control-sm shadow-none" formControlName="last_name" [value]="detailEmployeeFormData.last_name" placeholder="Last name" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label"><small>Username</small></label>
+                                        <input type="text" id="username" class="form-control form-control-sm shadow-none" formControlName="username" [value]="detailEmployeeFormData.username" placeholder="Username" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-sm-12 col-md-6 col-lg-6 col-xl-6">
+                                    <div class="mb-3">
+                                        <label for="email" class="form-label"><small>Email</small></label>
+                                        <input type="text" id="email" class="form-control form-control-sm shadow-none" formControlName="email" [value]="detailEmployeeFormData.email" placeholder="Email" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="birth_date" class="form-label"><small>Birth Date</small></label>
+                                <input type="text" id="birth_date" class="form-control form-control-sm shadow-none" formControlName="birth_date" [value]="detailEmployeeFormData.birth_date | date:'dd-MM-yyyy'" placeholder="Birth date" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label for="basic_salary" class="form-label"><small>Basic Salary</small></label>
+                                <input type="text" id="basic_salary" class="form-control form-control-sm shadow-none" formControlName="basic_salary" [value]="detailEmployeeFormData.basic_salary | currency:'Rp. '" placeholder="Basic salary" readonly>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label"><small>Status</small></label>
+                                <div class="d-flex">
+                                    <h5><span class="badge text-bg-success mb-0" *ngIf="(detailEmployeeFormData.status == 'active')">{{ detailEmployeeFormData.status }}</span></h5>
+                                    <h5><span class="badge text-bg-danger mb-0" *ngIf="(detailEmployeeFormData.status == 'inactive')">{{ detailEmployeeFormData.status }}</span></h5>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="group" class="form-label"><small>Group</small></label>
+                                <input type="text" id="group" class="form-control form-control-sm shadow-none" formControlName="group" [value]="detailEmployeeFormData.group" placeholder="Group" readonly>
+                            </div>
+                            <div class="mb-4">
+                                <label for="description" class="form-label"><small>Description</small></label>
+                                <textarea id="description" class="form-control form-control-sm shadow-none" formControlName="description" [value]="detailEmployeeFormData.description" placeholder="Description" rows="3" readonly></textarea>
+                            </div>
+                            <button type="button" class="btn btn-sm btn-secondary shadow-none" (click)="routerNavigateBack()">Ok</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer border-0 text-center text-muted fw-lighter">
+                <small>Employee Management</small>
+            </div>
+        </div>
+    </div>
+</div>

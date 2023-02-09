@@ -1,0 +1,12 @@
+:host {
+    font-family: 'Inter', sans-serif;
+    color: #212529;
+}
+
+table {
+    font-size: 0.85rem;
+}
+
+.bg-color {
+    background-color: #F5F5F5;
+}
